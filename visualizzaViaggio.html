@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Visualizza viaggio</title>
+    <link rel="stylesheet" href="style/visualizzaViaggioStyle.css">
+    <script src="script/visualizzaViaggioScript.js" defer></script>
+    <link rel="icon" href="img/favicon.png" type="image/png">
+</head>
+<body>
+    <header>
+        <a href="home.html" id="ancorLogo">
+            <img src="img/logoOrizzontaleBianco.png" alt="logo orizzontale" id="imageLogo">
+        </a>
+        <div id="menuHeader">
+            <a href="home.html">I tuoi viaggi</a>
+            <a href="creaViaggio.html">Crea nuovo viaggio</a>
+            <a href="">Cerca ispirazione AI</a>
+            <a href="trend.html">Trend</a>
+            <button id="logoutButton">Logout</button>
+        </div>
+    </header>
+
+    <div id="containerVisualizzaViaggio">
+        <div id="containerFrecciaIndietro">
+            <a href="home.html" id="frecciaIndietro">
+                <img src="img/frecciaIndietro.png" alt="freccia indietro">
+            </a>
+        </div>
+        <div id="containerDettagliViaggio">
+            <div id="titoloViaggio">
+                <h1>Dettagli del viaggio: </h1>
+                <h1 id="nome"></h1>
+            </div>
+            <div class="dettagliViaggio">
+                <p class="title">Organizzatore: </p>
+                <p id="organizzatore"></p>
+            </div>
+            <div class="dettagliViaggio">
+                <p class="title">Partecipanti: </p>
+                <p id="partecipanti"></p>
+            </div>
+            <div class="dettagliViaggio">
+                <p class="title">Destinazione: </p>
+                <p id="destinazione"></p>
+            </div>
+            <div class="dettagliViaggio">
+                <p class="title">Quando: </p>
+                <p id="tempo"></p>
+            </div>
+            <div class="dettagliViaggio">
+                <p class="title">Budget: </p>
+                <p id="conto"></p>
+            </div>
+            <div class="dettagliViaggio">
+                <p class="title">Trasporto: </p>
+                <p id="trasporto"></p>
+            </div>
+            <div class="dettagliViaggio">
+                <p class="title">Alloggio: </p>
+                <p id="alloggio"></p>
+            </div>
+            <div class="dettagliViaggio">
+                <p class="title">Attività: </p>
+                <p id="attivita"></p>
+            </div>
+        </div>
+        <div id="containerEditTripButton">
+            <button id="editTripButton">
+                <img src="img/iconaModifica.png" alt="icona modifica">
+            </button>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Welcome</title>
+    <link rel="stylesheet" href="style/welcomeStyle.css">
+    <script src="script/welcomeScript.js" defer></script>
+    <script src="script/autenticazioneScript.js" defer></script>
+    <link rel="icon" href="img/favicon.png" type="image/png">
+</head>
+<body>
+    <div id="welcome" class="itemSemitrasparenza">
+        <header>
+            <img id="imageLogo" src="img/logoOrizzontaleBianco.png" alt="logo orizzontale">
+
+            <div id="headerButtons">
+                <p class="headerItems">Chi siamo</p>
+                <p class="headerItems">Contatti</p>
+                <button class="headerItems" id="buttonAccedi">Accedi</button>
+                <button class="headerItems" id="buttonRegistrati">Registrati</button>
+            </div>
+        </header>
+
+        <form id="barraRicerca">
+            <select id="selectTipo" class="itemSemitrasparenza">
+                <option value="volo">Volo</option>
+                <option value="hotel">Hotel</option>
+            </select>
+            <div class="volo">
+                <label for="inputDa">Da</label><br>
+                <input type="text" id="inputDa" class="itemSemitrasparenza" placeholder="Paese, città o aeroporto">
+            </div>
+            <div class="volo">
+                <label for="inputA">A</label><br>
+                <input type="text" id="inputA" class="itemSemitrasparenza" placeholder="Paese, città o aeroporto">
+            </div>
+            <div class="volo">
+                <label for="inputPartenza">Partenza</label><br>
+                <input type="date" id="inputPartenza" class="itemSemitrasparenza">
+            </div>
+            <div class="volo">
+                <label for="inputRitorno">Ritorno</label><br>
+                <input type="date" id="inputRitorno" class="itemSemitrasparenza">
+            </div>
+
+            <div class="hotel">
+                <label for="inputAlloggio">Dove vuoi alloggiare?</label><br>
+                <input type="text" id="inputAlloggio" class="itemSemitrasparenza" placeholder="Inserisci destinazione o nome dell'hotel">
+            </div>
+            <div class="hotel">
+                <label for="inputCheckIn">Check-in</label><br>
+                <input type="date" id="inputCheckIn" class="itemSemitrasparenza">
+            </div>
+            <div class="hotel">
+                <label for="inputCheckOut">Check-out</label><br>
+                <input type="date" id="inputCheckOut" class="itemSemitrasparenza">
+            </div>
+
+            <button type="submit" id="buttonCerca" class="itemSemitrasparenza">Cerca</button>
+        </form>
+    </div>
+
+    <div id="loginContainer">
+        <form id="login">
+            <button id="buttonBackLogin">✖️</button>
+            <div class="inputLogin">
+                <label for="usernameLogin">Username o e-mail:</label>
+                <input type="text" id="usernameLogin" required>
+            </div>
+            <div class="inputLogin">
+                <label for="passwordLogin">Password:</label>
+                <input type="password" id="passwordLogin" required>
+                <button id="mostraPasswordLogin">👁️</button>
+            </div>
+            <p id="errorLogin"></p>
+            <button type="submit" id="buttonLogin">Login</button>
+        </form>
+    </div>
+
+    <div id="registrazioneContainer">
+        <form id="registrazione">
+            <button id="buttonBackRegistrazione">✖️</button>
+            <div class="inputRegistrazione">
+                <label for="usernameRegistrazione">Username:</label>
+                <input type="text" id="usernameRegistrazione" required>
+            </div>
+            <div class="inputRegistrazione">
+                <label for="emailRegistrazione">Email:</label>
+                <input type="email" id="emailRegistrazione" required>
+            </div>
+            <div class="inputRegistrazione">
+                <label for="passwordRegistrazione">Password:</label>
+                <input type="password" id="passwordRegistrazione" required>
+                <button id="mostraPasswordRegistrazione">👁️</button>
+            </div>
+            <p id="errorRegistrazione"></p>
+            <button type="submit" id="buttonRegistrazione">Registrati</button>
+        </form>
+    </div>
+</body>
+</html>

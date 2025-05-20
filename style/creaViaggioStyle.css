@@ -1,0 +1,131 @@
+/* DA SISTEMARE, importando anche il JS*/
+
+html {
+    margin: auto;
+    width: 100%;
+    height: 100%;
+}
+
+.indentato {
+    margin-left: 20px; /* Spaziatura da sinistra */
+}
+/* Importa un font moderno */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    background-color: #F5F5F5;
+    color: #333;
+    padding: 20px;
+}
+
+/* ---- HEADER ---- */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: white;
+    padding: 15px 30px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 12px;
+}
+
+#imageLogo {
+    height: 50px;
+}
+
+#menuHeader a {
+    text-decoration: none;
+    color: #07616A;
+    font-weight: 600;
+    margin-left: 20px;
+    transition: color 0.3s;
+}
+
+#menuHeader a:hover {
+    color: #FF4081;
+}
+
+/* ---- TITOLO ---- */
+h1 {
+    text-align: center;
+    margin: 30px 0;
+    font-size: 2rem;
+    color: #07616A;
+}
+
+/* ---- FORM ---- */
+div {
+    max-width: 600px;
+    background: white;
+    margin: 15px auto;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+label {
+    font-weight: bold;
+    margin-bottom: 5px;
+    display: block;
+}
+
+input[type="text"], input[type="date"] {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    font-size: 1rem;
+    outline: none;
+    transition: border 0.3s;
+}
+
+input[type="text"]:focus, input[type="date"]:focus {
+    border: 2px solid #07616A;
+}
+
+/* ---- PULSANTI ---- */
+input[type="button"], button {
+    background-color: #FF4081;
+    color: white;
+    font-weight: bold;
+    border: none;
+    padding: 10px 15px;
+    margin-top: 10px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.3s, transform 0.2s;
+}
+
+input[type="button"]:hover, button:hover {
+    background-color: #E91E63;
+    transform: scale(1.05);
+}
+
+#iconaSalvataggio {
+    width: 100%;
+    font-size: 1.1rem;
+}
+
+/* ---- RESPONSIVE DESIGN ---- */
+@media (max-width: 768px) {
+    div {
+        width: 90%;
+    }
+
+    header {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    #menuHeader {
+        margin-top: 10px;
+    }
+}
