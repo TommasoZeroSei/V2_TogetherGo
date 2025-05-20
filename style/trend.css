@@ -85,3 +85,38 @@ header {
     border-radius: 10px;
     text-shadow: black 0.2em 0.2em 0.3em;
 }
+
+.charts-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+    padding: 2rem;
+}
+
+.chart-card {
+    background-color: whitesmoke;
+    padding: 1.5rem;
+    border-radius: 16px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.4);
+    transition: transform 0.2s ease;
+}
+
+.chart-card:hover {
+    transform: scale(1.03);
+}
+
+.chart-card h2 {
+    margin-top: 0;
+    margin-bottom: 1rem;
+    font-size: 1.4em;
+    color: #B445AB;
+    text-shadow: none;
+}
+
+.chart-card ol {
+    padding-left: 1.2em;
+}
+
+.chart-card li {
+    margin-bottom: 0.5em;
+}
