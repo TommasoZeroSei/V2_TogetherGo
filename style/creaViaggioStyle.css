@@ -1,15 +1,3 @@
-/* DA SISTEMARE, importando anche il JS*/
-
-html {
-    margin: auto;
-    width: 100%;
-    height: 100%;
-}
-
-.indentato {
-    margin-left: 20px; /* Spaziatura da sinistra */
-}
-/* Importa un font moderno */
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
 
 * {
@@ -19,15 +7,21 @@ html {
     font-family: 'Poppins', sans-serif;
 }
 
+html {
+    margin: auto;
+    width: 100%;
+    height: 100%;
+}
+
 body {
     background-color: #F5F5F5;
     color: #333;
     padding: 20px;
 }
 
-/* ---- HEADER ---- */
 header {
     display: flex;
+    width: auto;
     justify-content: space-between;
     align-items: center;
     background: white;
@@ -37,10 +31,15 @@ header {
 }
 
 #imageLogo {
-    height: 50px;
+    height: 100px;
+    padding-left: 10px;
 }
 
-#menuHeader a {
+#menuHeader {
+    max-width: 800px;
+}
+
+.headerItems {
     text-decoration: none;
     color: #07616A;
     font-weight: 600;
@@ -52,7 +51,10 @@ header {
     color: #FF4081;
 }
 
-/* ---- TITOLO ---- */
+#logoutButton {
+    color: white;
+}
+
 h1 {
     text-align: center;
     margin: 30px 0;
@@ -60,7 +62,6 @@ h1 {
     color: #07616A;
 }
 
-/* ---- FORM ---- */
 div {
     max-width: 600px;
     background: white;
@@ -91,8 +92,7 @@ input[type="text"]:focus, input[type="date"]:focus {
     border: 2px solid #07616A;
 }
 
-/* ---- PULSANTI ---- */
-input[type="button"], button {
+button {
     background-color: #FF4081;
     color: white;
     font-weight: bold;
@@ -104,28 +104,12 @@ input[type="button"], button {
     transition: background 0.3s, transform 0.2s;
 }
 
-input[type="button"]:hover, button:hover {
+button:hover {
     background-color: #E91E63;
     transform: scale(1.05);
 }
 
-#iconaSalvataggio {
+#buttonSalvataggio {
     width: 100%;
     font-size: 1.1rem;
-}
-
-/* ---- RESPONSIVE DESIGN ---- */
-@media (max-width: 768px) {
-    div {
-        width: 90%;
-    }
-
-    header {
-        flex-direction: column;
-        text-align: center;
-    }
-
-    #menuHeader {
-        margin-top: 10px;
-    }
 }
