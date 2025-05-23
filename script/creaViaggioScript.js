@@ -20,9 +20,9 @@ document.addEventListener('DOMContentLoaded', function () {
     // Riferimenti agli elementi DOM
     const buttonNomeViaggio = document.getElementById("buttonNomeViaggio");
     const containerNomeViaggio = document.getElementById("containerNomeViaggio");
-
     const buttonPartecipanti = document.getElementById("buttonPartecipanti");
     const containerPartecipanti = document.getElementById("containerPartecipanti");
+    const inputPartecipanti = document.getElementById("inputPartecipanti");
 
     // Gestione Nome viaggio
     buttonNomeViaggio.addEventListener("click", () => {
@@ -53,28 +53,80 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // Gestione Partecipanti
     buttonPartecipanti.addEventListener("click", () => {
-        if (buttonPartecipanti.textContent === "Aggiungi") {
-            const inputPartecipanti = document.getElementById("inputPartecipanti");
-            if (inputPartecipanti && inputPartecipanti.value.trim() !== "") {
-                const pPartecipanti = document.createElement("p");
-                pPartecipanti.textContent = inputPartecipanti.value;
-                pPartecipanti.id = "pPartecipanti";
-                containerPartecipanti.replaceChild(pPartecipanti, inputPartecipanti);
-                buttonPartecipanti.textContent = "Modifica";
-            } else {
-                alert("Inserisci almeno un partecipante");
-            }
-        } else if (buttonPartecipanti.textContent === "Modifica") {
-            const pPartecipanti = document.getElementById("pPartecipanti");
-            if (pPartecipanti) {
-                const inputPartecipanti = document.createElement("input");
-                inputPartecipanti.type = "text";
-                inputPartecipanti.value = pPartecipanti.textContent;
-                inputPartecipanti.id = "inputPartecipanti";
-                containerPartecipanti.replaceChild(inputPartecipanti, pPartecipanti);
-                buttonPartecipanti.textContent = "Aggiungi";
-                inputPartecipanti.focus();
-            }
+        const nome = inputPartecipanti.value.trim();
+        if (nome !== "") {
+            const spanPartecipante = document.createElement("span");
+            spanPartecipante.classList.add("spanPartecipanti");
+
+            const pPartecipante = document.createElement("p");
+            pPartecipante.textContent = nome;
+            pPartecipante.classList.add("pPartecipante");
+
+            const rimuoviButton = document.createElement("button");
+            rimuoviButton.textContent = "Rimuovi";
+            rimuoviButton.type = "button";
+            rimuoviButton.addEventListener("click", () => {
+                containerPartecipanti.removeChild(spanPartecipante);
+            });
+
+            spanPartecipante.appendChild(pPartecipante);
+            spanPartecipante.appendChild(rimuoviButton);
+
+            containerPartecipanti.insertBefore(spanPartecipante, inputPartecipanti);
+
+            inputPartecipanti.value = "";
         }
+    });
+
+    // Blocca il submit quando si preme "Invio"
+    document.getElementById("creaViaggioForm").addEventListener("keydown", function (event) {
+        if (event.key === "Enter") {
+            event.preventDefault();
+        }
+    });
+
+    // Validazione completa al submit
+    document.getElementById("creaViaggioForm").addEventListener("submit", function (event) {
+        event.preventDefault();
+
+        // Recupera valori (p o input)
+        const nomeViaggio = document.getElementById("pNomeViaggio")?.textContent || document.getElementById("inputNomeViaggio")?.value.trim();
+        const pPartecipantiNodes = containerPartecipanti.querySelectorAll(".pPartecipante");
+        const partecipanti = Array.from(pPartecipantiNodes).map(p => p.textContent.trim()).filter(p => p !== "");        
+        const destinazione = document.getElementById("inputDestinazione").value.trim();
+        const dataInizio = document.getElementById("inputDataInizio").value;
+        const dataFine = document.getElementById("inputDataFine").value;
+        const conto = document.getElementById("inputConto").value.trim();
+        const trasporto = document.getElementById("inputTrasporto").value.trim();
+        const alloggio = document.getElementById("inputAlloggio").value.trim();
+        const attivita = document.getElementById("inputAttivita").value.trim();
+
+        // Verifica che tutti i campi siano compilati
+        if (!nomeViaggio || partecipanti.length === 0 || !destinazione || !dataInizio || !dataFine || !conto || !trasporto || !alloggio || !attivita) {
+            alert("Compila tutti i campi prima di salvare.");
+            return;
+        }        
+
+        // Verifica che la data di inizio non sia dopo la data di fine
+        if (new Date(dataInizio) > new Date(dataFine)) {
+            alert("La data di inizio non può essere successiva alla data di fine.");
+            return;
+        }
+
+        const viaggio = {
+            nomeViaggio,
+            partecipanti, // è un array
+            destinazione,
+            dataInizio,
+            dataFine,
+            conto,
+            trasporto,
+            alloggio,
+            attivita,
+            organizzatore: localStorage.getItem("username")
+        };        
+
+        alert("Viaggio salvato con successo!");
+        window.location.href = "home.html";
     });
 });

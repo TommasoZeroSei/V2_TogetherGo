@@ -113,3 +113,10 @@ button:hover {
     width: 100%;
     font-size: 1.1rem;
 }
+
+.spanPartecipanti {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 5px;
+}
