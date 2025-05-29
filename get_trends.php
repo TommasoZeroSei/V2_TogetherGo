@@ -44,18 +44,11 @@ switch ($trend) {
         break;
 
     case "trasporti":
-        $sql = "SELECT trasporto, 
-            COUNT(*) AS contatore
-            FROM viaggi
-            GROUP BY trasporto
-            ORDER BY contatore DESC;";
+        $sql = "";
         break;
 
-    case "sorpresa":
-        $sql = "SELECT destinazione AS nome
-                FROM viaggi
-                ORDER BY RAND()
-                LIMIT 10;";
+    case "tempo":
+        $sql = "";
         break;
 
     default:

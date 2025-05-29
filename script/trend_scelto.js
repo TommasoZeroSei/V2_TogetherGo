@@ -73,11 +73,9 @@ document.addEventListener("DOMContentLoaded", () => {
         case "trasporti":
             pageTitle.textContent = "Mezzi di trasporto più usati";
 
-            
-
             break;
-        case "sorpresa":
-            pageTitle.textContent = "Destinazioni casuali per te!";
+        case "tempo":
+            pageTitle.textContent = "i mesi in cui si parte di più";
             break;
         default:
             pageTitle.textContent = "Classifica";
