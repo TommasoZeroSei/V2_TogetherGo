@@ -3,7 +3,6 @@ header("Content-Type: application/json");
 header("Access-Control-Allow-Origin: *");
 header("Access-Control-Allow-Methods: POST");
 
-// Connessione al database
 $host = 'panzeri.tommaso.tave.osdb.it';
 $user = 'c367_admin';
 $password = 'tr3moon!';
@@ -16,10 +15,8 @@ if ($conn->connect_error) {
     exit;
 }
 
-// Legge i dati inviati via fetch
 $data = json_decode(file_get_contents("php://input"), true);
 
-// Controllo base
 if (!isset($data['action']) || $data['action'] !== "elenco") {
     echo json_encode(["error" => "Azione non valida"]);
     exit;
@@ -32,7 +29,6 @@ if ($username === "") {
     exit;
 }
 
-// Recupera i viaggi dell'utente (cerca esattamente con delimitatori)
 $query = "SELECT nome_viaggio, organizzatore FROM viaggi WHERE partecipanti LIKE ?";
 $stmt = $conn->prepare($query);
 $search = "%" . $username . "%";
@@ -49,3 +45,6 @@ echo json_encode($viaggi);
 $stmt->close();
 $conn->close();
 ?>
+
+
+
