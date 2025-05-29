@@ -31,7 +31,6 @@ if ($nome_viaggio === "") {
     exit;
 }
 
-// Query per recuperare i dettagli del viaggio
 $query = "SELECT organizzatore, partecipanti, destinazione, tempo, conto, trasporto, alloggio, attivita 
           FROM viaggi 
           WHERE nome_viaggio = '$nome_viaggio'";
@@ -41,7 +40,6 @@ $result = $conn->query($query);
 if ($result && $result->num_rows > 0) {
     $row = $result->fetch_assoc();
 
-    // Conversioni: partecipanti e tempo in array
     $partecipanti_array = array_map('trim', explode(',', $row['partecipanti']));
     $tempo_array = array_map('trim', explode(',', $row['tempo']));
 
